@@ -58,8 +58,7 @@ class Authassignment extends BaseAuthassignment
      * @return array('role1','role2')
      */
     public function getUserRoles($user_id){
-            $this->userid = $user_id;
-            $asigned_roles = $this->search()->getData();
+            $asigned_roles = $this->findAllByAttributes(['userid' => $user_id]);
             $aUserRoles = array();
             foreach($asigned_roles  as $modelAsignedRole){
                 $aUserRoles[] = $modelAsignedRole->itemname;
