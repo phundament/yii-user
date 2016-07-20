@@ -32,7 +32,7 @@
 
 														<label>
 															<span class="block input-icon input-icon-right">
-																<input type="password" class="span12" placeholder="Password" name="UserLogin[password]"/>
+																<input type="password" class="span12" placeholder="Password" name="UserLogin[password]"  maxlength="128"/>
 																<i class="icon-lock"></i>
 															</span>
 														</label>
@@ -52,29 +52,7 @@
 
 														<div class="space-4"></div>
 													</fieldset>
-												</form><?php echo CHtml::endForm(); ?>
-
-                                                <?php
-                                                    $form = new CForm(array(
-                                                        'elements'=>array(
-                                                            'username'=>array(
-                                                                'type'=>'text',
-                                                                'maxlength'=>200,
-                                                            ),
-                                                            'password'=>array(
-                                                                'type'=>'password',
-                                                                'maxlength'=>32,
-                                                            ),
-                                                        ),
-
-                                                        'buttons'=>array(
-                                                            'login'=>array(
-                                                                'type'=>'submit',
-                                                                'label'=>'Login',
-                                                            ),
-                                                        ),
-                                                    ), $model);
-                                                    ?>
+												<?php echo CHtml::endForm(); ?>
                                                 
 											</div><!-- /widget-main -->
 

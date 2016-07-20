@@ -156,5 +156,6 @@ return array(
     'Name' => 'Nosaukums',
     'Your IP is not in allowed list.' => 'Tava IP adrese nav atļauto sarakstā.',
     'The default language' => 'Noklusētā valoda',
+    'Incorect username or password' => 'Kļūdains lietotājvārds vai parole',
 );
 
