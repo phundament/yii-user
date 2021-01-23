@@ -262,7 +262,7 @@ class User extends CActiveRecord
                     AND ccuc_status = '".CcucUserCompany::CCUC_STATUS_PERSON."'                     
             INNER JOIN ccmp_company 
                 ON ccuc_ccmp_id = ccmp_company.ccmp_id 
-            INNER JOIN authassignment aa 
+            INNER JOIN AuthAssignment aa 
                 ON user.id = aa.userid 
                     AND aa.itemname = '".Yii::app()->getModule('user')->customerUser['role']."' 
                 
