@@ -132,7 +132,9 @@ $this->menu=array(
                 $criteria->compare('t.ccxg_ccgr_id', 1); //1 - syscompany
                 $model_ccxg = CcxgCompanyXGroup::model()->findAll($criteria);                
                 foreach ($model_ccxg as $mCcxg) {
-                    $list[$mCcxg->ccxg_ccmp_id] = $mCcxg->ccxgCcmp->ccmp_name;
+                    if (isset($mCcxg->ccxgCcmp->ccmp_name)) {
+                        $list[$mCcxg->ccxg_ccmp_id] = $mCcxg->ccxgCcmp->ccmp_name;
+                    }
                 }            
                 
             }else{
