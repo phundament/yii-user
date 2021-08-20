@@ -84,7 +84,7 @@ class User extends CActiveRecord
         }
         
         if (Yii::app()->user->id == $this->id) {
-            array(
+            return array(
                 array('username, email', 'required'),
                 array('username', 'length', 'max' => 128, 'min' => 3, 'message' => UserModule::t("Incorrect username (length between 3 and 128 characters).")),
                 array('email', 'email'),
