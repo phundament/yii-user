@@ -21,10 +21,12 @@ class UserLogin extends CFormModel
 		return array(
 			// username and password are required
 			array('username, password', 'required'),
+            array('username', 'length', 'max' => 128),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
 			array('password', 'authenticate'),
+            array('password', 'length', 'max' => 128),
 		);
 	}
 
@@ -57,20 +59,26 @@ class UserLogin extends CFormModel
 					Yii::app()->user->login($identity,$duration);
 					break;
 				case UserIdentity::ERROR_EMAIL_INVALID:
-					$this->addError("username",UserModule::t("Email is incorrect."));
-					break;
+//					$this->addError("username",UserModule::t("Email is incorrect."));
+//					break;
 				case UserIdentity::ERROR_USERNAME_INVALID:
-					$this->addError("username",UserModule::t("Username is incorrect."));
-					break;
+//					$this->addError("username",UserModule::t("Username is incorrect."));
+//					break;
 				case UserIdentity::ERROR_STATUS_NOTACTIV:
-					$this->addError("status",UserModule::t("You account is not activated."));
-					break;
+//					$this->addError("status",UserModule::t("You account is not activated."));
+//					break;
 				case UserIdentity::ERROR_STATUS_BAN:
-					$this->addError("status",UserModule::t("You account is blocked."));
-					break;
+//					$this->addError("status",UserModule::t("You account is blocked."));
+//					break;
 				case UserIdentity::ERROR_PASSWORD_INVALID:
-					$this->addError("password",UserModule::t("Password is incorrect."));
+//					$this->addError("password",UserModule::t("Password is incorrect."));
+//					break;
+				case UserIdentity::ERROR_STATUS_IP_DENIED:
+//					$this->addError("status",UserModule::t("Your IP is not in allowed list."));
+//					break;
+					$this->addError("status",UserModule::t("Incorect username or password"));
 					break;
+                    
 			}
 		}
 	}

@@ -23,7 +23,7 @@ return array(
 	'Retype Password' => 'Wachtwoord opnieuw invoeren',
 	'Retype Password is incorrect.' => 'Opnieuw wachtwoord invoeren is niet correct.',
 	'Incorrect password (minimal length 4 symbols).' => 'Ongeldig wachtwoord (minimaal 4 karakters).',
-	'Incorrect username (length between 3 and 20 characters).' => 'Ongeldige gebruikersnaam (lengte tussen 3 en 20 karakters).',
+	'Incorrect username (length between 3 and 128 characters).' => 'Ongeldige gebruikersnaam (lengte tussen 3 en 128 karakters).',
 	'Incorrect symbol\'s. (A-z0-9)' => 'In uw gebruikersnaam mag u alleen letters en getallen gebruiken.',
 	'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'Variabele mag alleen a-z, 0-9, underscores bevatten en moet beginnen met een letter.',
 	"Length of ' + n + ' must be between '+min+' and '+max+'."=>"Lengte van ' + n + ' moet tussen '+min+' en '+max+' liggen.",

@@ -26,7 +26,7 @@ return array(
 	'Retype Password' => 'Повторіть пароль',
 	'Retype Password is incorrect.' => 'Паролі не співпадають',
 	'Incorrect password (minimal length 4 symbols).' => 'Мінімальна довжина паролю 4 символи',
-	'Incorrect username (length between 3 and 20 characters).' => 'Довжина імені користувача від 3 до 20 символів',
+	'Incorrect username (length between 3 and 128 characters).' => 'Довжина імені користувача від 3 до 128 символів',
 	"Incorrect symbol's. (A-z0-9)" => 'В імені користувача допускаються лише латинські літери та цифри',
     'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'В назі змінної можуть бути тільки латинські літери, цифри та символ нижнього підкреслення.',
     "Length of ' + n + ' must be between '+min+' and '+max+'."=>"Довжина ' + n + ' має бути не менше '+min+' і не більше '+max+' символів.",

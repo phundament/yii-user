@@ -11,6 +11,7 @@ $this->menu=array(
     array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
 );
 
+
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
     $('.search-form').toggle();
@@ -25,21 +26,30 @@ $('.search-form form').submit(function(){
 ");
 
 ?>
+<table class="toolbar"><tr>
+    <td>
+<?php
+                $this->widget("bootstrap.widgets.TbButton", array(
+                    "label" => UserModule::t('Create User'),
+                    "icon" => "icon-plus",
+                    "url" => array("create"),
+                    //"visible" => Yii::app()->user->checkAccess("Company.*")
+                ));
+
+?>            
+    </td>
+    </tr>
+</table>    
+
 <h1><?php echo UserModule::t("Manage Users"); ?></h1>
+<div class="row">
+<div class="span10">
 
-<p><?php echo UserModule::t("You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done."); ?></p>
-
-<?php echo CHtml::link(UserModule::t('Advanced Search'),'#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-    'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $defaultGridView = Yii::app()->getModule('user')->defaultGridView; ?>
+<?php $this->widget($defaultGridView['path'], $defaultGridView['options'] + array(
 	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	//'filter'=>$model,
 	'columns'=>array(
 		array(
 			'name' => 'id',
@@ -61,15 +71,16 @@ $('.search-form form').submit(function(){
 		array(
 			'name'=>'superuser',
 			'value'=>'User::itemAlias("AdminStatus",$data->superuser)',
-			'filter'=>User::itemAlias("AdminStatus"),
+			//'filter'=>User::itemAlias("AdminStatus"),
 		),
 		array(
 			'name'=>'status',
 			'value'=>'User::itemAlias("UserStatus",$data->status)',
-			'filter' => User::itemAlias("UserStatus"),
+			//'filter' => User::itemAlias("UserStatus"),
 		),
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>$defaultGridView['buttonColumn'],
 		),
 	),
 )); ?>
+</div>

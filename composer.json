@@ -1,0 +1,17 @@
+{
+    "name": "uldisn/yii-user",
+    "description": "User management module",
+    "keywords": ["user","yii","phundament"],
+    "type": "yii-extension",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Mikhail Mangushev",
+            "email": "development@2mx.org"
+        }
+    ],
+    "require": {
+        "dbrisinajumi/d2mailer": "dev-master",
+        "phpseclib/phpseclib": "0.3.*"
+    }
+}

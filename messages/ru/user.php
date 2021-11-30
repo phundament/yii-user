@@ -25,7 +25,7 @@ return array(
 	'Retype Password' => 'Подтверждение пароля',
 	'Retype Password is incorrect.' => 'Пароли не совпадают.',
 	'Incorrect password (minimal length 4 symbols).' => 'Минимальная длина пароля 4 символа.',
-	'Incorrect username (length between 3 and 20 characters).' => 'Длина имени пользователя от 3 до 20 символов.',
+	'Incorrect username (length between 3 and 128 characters).' => 'Длина имени пользователя от 3 до 128 символов.',
 	"Incorrect symbols (A-z0-9)." => 'В имени пользователя допускаются только латинские буквы и цифры.',
 	'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'В название переменной допускаются только латинские буквы, цифры и символ подчеркивания.',
 	"Length of ' + n + ' must be between '+min+' and '+max+'."=>"Длинна ' + n + ' должна быть не меньше '+min+' и не более '+max+' символов.",
@@ -68,7 +68,7 @@ return array(
 	'Not active' => 'Не активирован',
 	'Active' => 'Активирован',
 	'Banned' => 'Заблокирован',
-	'Please fill out the following form with your login credentials:' => 'Пожалуйста, заполните следующую форму с вашими Логин и паролем:',
+	'Log in with your credentials:' => 'Ваш Логин и пароль:',
 	'Fields with <span class="required">*</span> are required.' => '<span class="required">*</span> Обязательные поля.',
 	'List User' => 'Список пользователей',
 	'Edit' => 'Редактировать',
@@ -129,5 +129,6 @@ return array(
 	'Search' => 'Искать',
 	'Advanced Search' => 'Расширенный поиск',
 	'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.'=>'Вы можете использовать операторы сравнения (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) установив их перед значением.',
+    'The default language' => 'Язык по умолчанию',
 );
 

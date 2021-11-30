@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'username',array('size'=>128,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
@@ -28,13 +28,13 @@
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
-
+<?php if (FALSE){ ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'superuser'); ?>
 		<?php echo $form->dropDownList($model,'superuser',User::itemAlias('AdminStatus')); ?>
 		<?php echo $form->error($model,'superuser'); ?>
 	</div>
-
+<?php } ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->dropDownList($model,'status',User::itemAlias('UserStatus')); ?>

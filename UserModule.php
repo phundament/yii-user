@@ -42,6 +42,24 @@ class UserModule extends CWebModule
 	
 	/**
 	 * @var boolean
+	 * @desc allow guests register
+	 */
+	public $allowGuestRegister = true;
+
+    /**
+	 * @var boolean
+	 * @desc show for user users list
+	 */
+	public $showUserList = true;
+
+	/**
+	 * @var boolean
+	 * @desc allow to user edit profile
+	 */
+	public $allowUserEditProfile = true;    
+    
+    /**
+	 * @var boolean
 	 * @desc activate user on registration (only $sendActivationMail = false)
 	 */
 	public $activeAfterRegister=false;
@@ -100,10 +118,33 @@ class UserModule extends CWebModule
 	public $tableUsers = '{{users}}';
 	public $tableProfiles = '{{profiles}}';
 	public $tableProfileFields = '{{profiles_fields}}';
+	
+    public $view = false;
+    public $layouts = '//layouts/column2';
+    
 
     public $defaultScope = array(
             'with'=>array('profile'),
     );
+
+    /**
+     * @property what grid view to use as default.
+     */
+    public $defaultGridView = array(
+        'path'=>'zii.widgets.grid.CGridView',
+        'options'=>array(),
+        'buttonColumn' => 'CButtonColumn',
+    );
+
+    /**
+     * @property what grid view to use as default.
+     */
+    public $defaultDetailView = array(
+        'path'=>'zii.widgets.CDetailView',
+        'options'=>array(),
+    );
+    
+    public $UserAdminRoles = array();
 	
 	static private $_user;
 	static private $_users=array();
@@ -116,6 +157,45 @@ class UserModule extends CWebModule
 	 * @desc Behaviors for models
 	 */
 	public $componentBehaviors=array();
+    
+    public $options = array();
+    
+    /**
+     * setings for customer user
+     * role - customer role
+     * @var array 
+     */    
+    public $customerUser = array();
+    
+    
+    
+    /**
+     * Code card settings. Not active by default
+     */
+    public $codeCard = array(
+        'require'    => false,
+        'host'       => '',
+        'apy_key'    => '',
+        'crypt_key'  => '',
+    );
+    
+    /**
+     * Default Security Policy settings
+     * - Allow guest access (if allowed by rules)
+     * - Don't logout if IP changed during session
+     * - Don't logout if User Agent changed during session
+     * - Don't disable multiple sessions for the same user
+     * - Don't check User access in uxip_user_x_ip_table
+     * - Don't set denyGuestExcept it's used only with denyGuest = true
+     */
+    public $SecurityPolicy = array(
+        'denyGuest'        => false,
+        'denyIpChanges'    => false,
+        'denyUaChanges'    => false,
+        'denyMultiSession' => false,
+        'useIpTables'      => false,
+        'denyGuestExcept'  => array(),
+    );
 	
 	public function init()
 	{
@@ -127,6 +207,7 @@ class UserModule extends CWebModule
 			'user.models.*',
 			'user.components.*',
 		));
+        $this->defaultController = 'user';
 	}
 	
 	public function getBehaviorsFor($componentName){

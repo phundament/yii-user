@@ -23,7 +23,7 @@ return array(
 	'Retype Password' => 'Πληκτρολογήστε ξανά το συνθηματικό',
 	'Retype Password is incorrect.' => 'Πληκτρολογήσατε λάθος την επαλήθευση του συνθηματικού.',
 	'Incorrect password (minimal length 4 symbols).' => 'Μη αποδεκτό συνθηματικό (τουλάχιστον 4 χαρακτήρες).',
-	'Incorrect username (length between 3 and 20 characters).' => 'Μη αποδεκτό όνομα χρήστη  (από 3 έως 20 χαρακτήρες).',
+	'Incorrect username (length between 3 and 128 characters).' => 'Μη αποδεκτό όνομα χρήστη  (από 3 έως 128 χαρακτήρες).',
 	'Incorrect First Name (length between 3 and 50 characters).' => 'Μη αποδεκτό όνομα χρήστη  (από 3 έως 20 χαρακτήρες).',
 	'Incorrect symbol\'s. (A-z0-9)' => 'Λάθος σύμβολα.(A-z0-9)',
 	'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'Το όνομα της μεταβλητής μπορεί να αποτελείται από τους χαρακτήρες a-z,0-9,κάτω παύλα.Πρέπει ν\'αρχίζει με γράμμα.',

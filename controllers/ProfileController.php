@@ -4,22 +4,85 @@ class ProfileController extends Controller
 {
 	public $defaultAction = 'profile';
 	public $layout='//layouts/column2';
-
+    public $contentHeader = FALSE;
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
+
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return CMap::mergeArray(parent::filters(),array(
+			'accessControl', // perform access control for CRUD operations
+		));
+	}
+    
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',  // allow all user to edit own profile
+				'actions'=>array('edit'),
+				'expression'=>'(UserModule::isAdmin() || Yii::app()->getModule(\'user\')->allowUserEditProfile)',
+			),
+			array('allow',  // allow all user view own profile
+				'actions'=>array('profile','changepassword'),
+				'users'=>array('@'), //autentificated users
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}	    
+    
 	/**
 	 * Shows a particular model.
 	 */
-	public function actionProfile()
+	public function actionProfile($ajax = false)
 	{
-		$model = $this->loadUser();
-	    $this->render('profile',array(
-	    	'model'=>$model,
-			'profile'=>$model->profile,
-	    ));
-	}
+
+        if($ajax !== false 
+                && $ajax == 'ppcn-person-contact-grid'
+                && Yii::app()->hasModule('d2person')
+        ){
+            $view = Yii::app()->getModule('user')->view . '.profile._view_contacts';
+            $this->renderPartial($view);
+            return;
+        }
+
+        $model = $this->loadUser();        
+        
+        $view = 'profile';       
+        
+        if(Yii::app()->getModule('user')->view){
+            $alt_view = Yii::app()->getModule('user')->view . '.profile.'.$view;
+            if (is_readable(Yii::getPathOfAlias($alt_view) . '.php')) {
+                $view = $alt_view;
+                $this->layout=Yii::app()->getModule('user')->layout;
+            }
+        }
+        
+        if (DbrUser::isCustomerOfficeUser()) {
+            $this->contentHeader = UserModule::t('Your profile');
+            $this->layout='//layouts/ace';
+            $this->render('ace_profile', array(
+                'model' => $model,
+                'profile' => $model->profile,
+            ));
+        } else {
+            $this->render($view, array(
+                'model' => $model,
+                'profile' => $model->profile,
+            ));
+        }
+    }
 
 
 	/**
@@ -82,7 +145,27 @@ class ProfileController extends Controller
 						$this->redirect(array("profile"));
 					}
 			}
-			$this->render('changepassword',array('model'=>$model));
+            
+            $view = 'changepassword';       
+            if(Yii::app()->getModule('user')->view){
+                $alt_view = Yii::app()->getModule('user')->view . '.profile.'.$view;
+                if (is_readable(Yii::getPathOfAlias($alt_view) . '.php')) {
+                    $view = $alt_view;
+                    $this->layout=Yii::app()->getModule('user')->layout;
+                }
+            }            
+            
+            if (DbrUser::isCustomerOfficeUser()) {
+                $this->contentHeader = UserModule::t('Change password');
+                $this->layout='//layouts/ace';
+                $this->render('ace_changepassword', array(
+                    'model' => $model,
+                ));
+            } else {
+                $this->render($view, array(
+                    'model' => $model,
+                ));
+            }            
 	    }
 	}
 

@@ -45,6 +45,15 @@ Change your config main:
                 # automatically login from registration
                 'autoLogin' => true,
 
+                # guests allow register
+                'allowGuestRegister' => true,
+
+                # show user list
+                'showUserList' => true,
+
+                # alow to user edit self profile
+                'allowUserEditProfile' => true,
+
                 # registration path
                 'registrationUrl' => array('/user/registration'),
 

@@ -23,7 +23,7 @@ return array(
 	'Retype Password' => 'パスワード(確認)',
 	'Retype Password is incorrect.' => 'パスワード(確認)が正しくありません。',
 	'Incorrect password (minimal length 4 symbols).' => 'パスワードが正しくありません。(4 文字以上)',
-	'Incorrect username (length between 3 and 20 characters).' => 'ユーザー名が正しくありません。(3 文字以上、20 文字以下)',
+	'Incorrect username (length between 3 and 128 characters).' => 'ユーザー名が正しくありません。(3 文字以上、128 文字以下)',
 	'Incorrect symbol\'s. (A-z0-9)' => '使用できない文字です。(A-z0-9)',
 	'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'変数名に使用出来る文字は、小文字のアルファベット(a-z)、数字(0-9)、アンダースコア (_) のみで、先頭はアルファベットでなければなりません。',
 	"Length of ' + n + ' must be between '+min+' and '+max+'."=>"' + n + ' の長さは、'+min+'以上、'+max+'以下でなければなりません。",

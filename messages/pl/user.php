@@ -28,7 +28,7 @@ return array(
         'Retype Password' => 'Hasło ponownie',
         'Retype Password is incorrect.' => 'Przepisane hasło jest inne.',
         'Incorrect password (minimal length 4 symbols).' => 'Niepoprawne hasło (minimalna długość to 4 znaki).',
-        'Incorrect username (length between 3 and 20 characters).' => "Niewłaściwa nazwa użytkownika (wpis powienien mieć od 3 do 20 znaków).",
+        'Incorrect username (length between 3 and 128 characters).' => "Niewłaściwa nazwa użytkownika (wpis powienien mieć od 3 do 128 znaków).",
         'Incorrect symbol\'s. (A-z0-9)' => 'Niepoprawny wpis. (A-z0-9)',
         'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'Nazwa zmiennej moze składać się ze znaków a-z, 0-9, podkreśleń, zaczynać się od litery.',
         "Length of ' + n + ' must be between '+min+' and '+max+'."=>"Długość ' + n + ' musi być pomiędzy '+min+' i '+max+'.",

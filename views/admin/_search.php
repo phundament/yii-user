@@ -12,7 +12,7 @@
 
     <div class="row">
         <?php echo $form->label($model,'username'); ?>
-        <?php echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
+        <?php echo $form->textField($model,'username',array('size'=>128,'maxlength'=>128)); ?>
     </div>
 
     <div class="row">

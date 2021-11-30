@@ -23,7 +23,7 @@ return array(
 	'Retype Password' => 'Reintroduceti parola',
 	'Retype Password is incorrect.' => 'Parola reintrodusa este gresita.',
 	'Incorrect password (minimal length 4 symbols).' => 'Parola incorecta (minim 4 caractere).',
-	'Incorrect username (length between 3 and 20 characters).' => 'Nume utilizator incorect (Intre 3 si 20 caractere).',
+	'Incorrect username (length between 3 and 128 characters).' => 'Nume utilizator incorect (Intre 3 si 128 caractere).',
 	'Incorrect symbol\'s. (A-z0-9)' => 'Utilizati doar litere si cifre.',
 	'Variable name may consist of a-z, 0-9, underscores, begin with a letter.'=>'Denumirile variabilelor trebuie sa fie formate doar din a-z, 0-9, underscore si trebuie sa inceapa cu o litera.',
 	"Length of ' + n + ' must be between '+min+' and '+max+'."=>"Lungimea ' + n + ' trebuie sa fie intre '+min+' si'+max+'.",
